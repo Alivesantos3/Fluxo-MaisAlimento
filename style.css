@@ -305,12 +305,121 @@ section h2 {
 
 /*INSTITUIÇÕES*/
 
-#instituicoes ul {
-    padding-left: 48px;
+/* Container dos cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centraliza os cards */
+    gap: 1.5rem;
+    margin-top: 4rem;
 }
 
-#instituicoes li {
-    margin-bottom: 8px;
+/*Cards das instituições*/
+.instituicao-card {
+    flex: 1 1 250px; 
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.instituicao-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.instituicao-card h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.instituicao-card p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Card de divulgação */
+.instituicao-card-divulgar {
+    background-color: #d1fae5; 
+    text-align: left;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 20px;
+    
+    width: 100%;      
+    max-width: 800px; 
+    justify-self: center; 
+    
+    grid-column: 1 / -1; 
+}
+
+.instituicao-card-divulgar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Ícone do card de divulgação */
+.instituicao-card-divulgar div:first-child {
+    font-size: 2.5rem;
+}
+
+/* Título e texto do card de divulgação */
+.instituicao-card-divulgar h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.instituicao-card-divulgar p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* COMO DOAR */
+#como-doar {
+    padding: 4rem 1.5rem; 
+    text-align: center;
+}
+
+#como-doar h3 {
+    font-size: 2rem; 
+    font-weight: 600;
+    margin-bottom: 2rem; 
+    color: #166534;
+}
+
+/* Cards das etapas */
+.card {
+    background-color: white;
+    border-radius: 1rem; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    transition: box-shadow 0.2s, transform 0.2s;
+    padding: 1.5rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); 
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2.25rem;
+    color: #166534; 
+}
+
+.card-text {
+    color: #166534; 
+    font-weight: 500; 
 }
 
 /* FOOTER */
@@ -416,6 +525,17 @@ input {
 }
 
 /* RESPONSIVO */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+    }
+
+    .instituicao-card-divulgar {
+        flex-direction: column; /* ícone em cima do texto no celular */
+        text-align: center;
+    }
+}
+
 @media (max-width: 600px) {
     header nav {
         flex-direction: column;
@@ -432,3 +552,4 @@ input {
         font-size: 0.9rem;
     }
 }
+
