@@ -27,7 +27,13 @@ const btnTopo = document.getElementById('topo');
 
 window.addEventListener('scroll', () => {
     if (btnTopo) {
-        btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+        // Altura total da página
+        const alturaPagina = document.documentElement.scrollHeight;
+        // Quanto já rolou da página
+        const scrollAtual = window.scrollY + window.innerHeight;
+        
+        // Mostrar o botão quando faltar 500px para o fim
+        btnTopo.style.display = (alturaPagina - scrollAtual) < 400 ? 'block' : 'none';
     }
 });
 
@@ -37,6 +43,7 @@ if (btnTopo) {
     });
 }
 
+
 /* CAMPANHAS */
 const lista = document.getElementById('listaCampanhas');
 const filtroLocal = document.getElementById('filtroLocal');
@@ -45,7 +52,7 @@ if (lista && filtroLocal) {
 
     const campanhas = [
         { instituicao: "Igreja Quadrangular", local: "Jardim das Rosas A", media: 28, arrecadado: 8 },
-        { instituicao: "Assembleia de Deus Graça Real", local: "Jardim Rosário", media: 7, arrecadado: 3 },
+        { instituicao: "Assembleia de Deus Chama Viva", local: "Jardim Rosário", media: 7, arrecadado: 3 },
         { instituicao: "Igreja Quadrangular", local: "Palmeiras", media: 12, arrecadado: 4 }
     ];
 
@@ -103,6 +110,64 @@ alimentos.forEach(item => {
     });
 });
 
+/* COMO DOAR */
+
+const etapas = [
+    { icon: "📦", texto: "Escolha uma Instituição" },
+    { icon: "📍", texto: "Encontre o ponto de coleta" },
+    { icon: "❤️", texto: "Entregue sua doação" },
+    { icon: "👥", texto: "Acompanhe os resultados" }
+];
+
+const container = document.getElementById('cards-container');
+
+etapas.forEach(etapa => {
+    // Cria o card
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    // Icone
+    const icon = document.createElement('div');
+    icon.className = 'card-icon';
+    icon.textContent = etapa.icon;
+
+    // Texto
+    const text = document.createElement('p');
+    text.className = 'card-text';
+    text.textContent = etapa.texto;
+
+    // Adiciona ao card
+    card.appendChild(icon);
+    card.appendChild(text);
+
+    // Adiciona o card ao container
+    container.appendChild(card);
+});
+
+// Card de divulgação
+const cardDivulgar = document.createElement('div');
+cardDivulgar.className = 'instituicao-card-divulgar';
+
+// efeito hover
+cardDivulgar.addEventListener('mouseover', () => {
+    cardDivulgar.style.transform = 'translateY(-5px)';
+    cardDivulgar.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+});
+
+cardDivulgar.addEventListener('mouseout', () => {
+    cardDivulgar.style.transform = 'translateY(0)';
+    cardDivulgar.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+});
+
+// conteúdo do card com emoji de envelope
+cardDivulgar.innerHTML = `
+    <div style="font-size: 2rem;">📧</div>
+    <h4>Quer divulgar sua instituição?</h4>
+    <p>Entre em contato pelo email: <strong>fluxomaisalimento@gmail.com</strong></p>
+`;
+
+// adiciona ao container
+container.appendChild(cardDivulgar);
 /* MODAL */
 function abrirModal(titulo, info) {
     const modal = document.getElementById('modal');
