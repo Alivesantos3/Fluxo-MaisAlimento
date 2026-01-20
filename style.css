@@ -245,7 +245,7 @@ section h2 {
 }
 
 /* BARRA DE PROGRESSO */
-.barra {
+.barra { 
     background: #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -255,8 +255,10 @@ section h2 {
 
 .barra span {
     display: block;
-    height: 100%;
+    height: 100%; 
     background: linear-gradient(90deg, #66bb6a, #2e7d32);
+    width: 0;
+    transition: width 0.5s ease;
 }
 
 /* BOTÃO CARD */
@@ -572,4 +574,5 @@ input {
         font-size: 0.9rem;
     }
 }
+
 
