@@ -245,20 +245,37 @@ section h2 {
 }
 
 /* BARRA DE PROGRESSO */
-.barra { 
-    background: #ddd;
+.barra {
+    width: 100%;
+    background: #e0e0e0;
     border-radius: 8px;
     overflow: hidden;
-    height: 14px;
+    height: 18px;
     margin: 10px 0;
+    position: relative;
 }
 
 .barra span {
     display: block;
-    height: 100%; 
-    background: linear-gradient(90deg, #66bb6a, #2e7d32);
-    width: 0;
-    transition: width 0.5s ease;
+    height: 100%;
+    background: linear-gradient(90deg, #9beba0, #2e7d32);
+    min-width: 6px;
+    transition: width 0.4s ease;
+}
+
+.barra .percentual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
 }
 
 /* BOTÃO CARD */
@@ -574,5 +591,6 @@ input {
         font-size: 0.9rem;
     }
 }
+
 
 
