@@ -52,7 +52,7 @@ if (lista && filtroLocal) {
 
     const campanhas = [
         { instituicao: "Igreja Quadrangular", local: "Jardim das Rosas A", media: 28, arrecadado: 8 },
-        { instituicao: "Assembleia de Deus Chama Viva", local: "Jardim Rosário", media: 7, arrecadado: 3 },
+        { instituicao: "Assembleia de Deus Chama Viva", local: "Jardim Rosário", media: 7, arrecadado: 2 },
         { instituicao: "Igreja Quadrangular", local: "Palmeiras", media: 12, arrecadado: 4 }
     ];
 
@@ -67,19 +67,23 @@ if (lista && filtroLocal) {
                 c.local.toLowerCase().includes(localDigitado)
             )
             .forEach(c => {
-                const pct = (c.arrecadado / c.media) * 100;
+                const pct = Math.min(100, (c.arrecadado / c.media) * 100).toFixed(0);
+
 
                 const div = document.createElement('div');
                 div.className = 'card';
                 div.innerHTML = `
                     <h3>${c.instituicao}</h3>
                     <p><strong>Local:</strong> ${c.local}</p>
+
                     <div class="barra">
                         <span style="width:${pct}%"></span>
+                        <div class="percentual">${pct}%</div>
                     </div>
+
                     <button onclick="abrirModal(
                         '${c.instituicao}',
-                        'Media de Doações Mensais: ${c.media} cestas | Arrecadado: ${c.arrecadado} cestas'
+                        'Média de Doações Mensais: ${c.media} cestas | Arrecadado: ${c.arrecadado} cestas'
                     )">
                         Ver detalhes
                     </button>
@@ -93,7 +97,6 @@ if (lista && filtroLocal) {
 
     renderizar();
 }
-
 /* INTERAÇÃO ALIMENTOS */
 
 const alimentos = document.querySelectorAll('.lista-alimentos li');
@@ -184,3 +187,4 @@ function fecharModal() {
         modal.style.display = 'none';
     }
 }
+
