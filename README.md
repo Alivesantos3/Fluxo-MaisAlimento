@@ -1,20 +1,16 @@
-<div style="text-align:center;">
-<img src="fotos/logo.png" width="100">
+<div align="center">
+<img src="fotos/logo.png" width="120">
+  
+# Fluxo + Alimento
 </div>
-
-<p align="center" style="font-size:50px; font-weight:bold;">
-  Fluxo + Alimento
-</p>
-
-
 
 ## 📍 Visão Geral
 
 **Fluxo + Alimento** é um site desenvolvido para facilitar e organizar os processos de arrecadação de alimentos realizados por diferentes instituições do município de Ibirité. A plataforma oferece uma visão centralizada das campanhas ativas, permitindo que a comunidade acompanhe metas, progresso e formas de contribuição.
 
 
-<div style="text-align:center;">
-<img src="fotos/demo.gif" width="800">
+<div align="center">
+<img src="fotos/demo.gif" width="900">
 </div>
 
 ## ⚙️ Funcionalidades
@@ -53,4 +49,5 @@ Esse projeto foi desenvolvido por **Alice Alves**,**Ester Araújo**, **Iasmin Pe
 
 ---
 Se o projeto foi útil para você, considere marcar o repositório com uma estrela.
+
 Sugestões de melhorias são bem-vindas por meio da abertura de *Issues.*
